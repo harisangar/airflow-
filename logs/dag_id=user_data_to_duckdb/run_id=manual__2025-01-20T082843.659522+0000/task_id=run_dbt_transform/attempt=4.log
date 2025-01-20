@@ -1,0 +1,45 @@
+[2025-01-20T08:45:45.659+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-20T08:45:45.832+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: user_data_to_duckdb.run_dbt_transform manual__2025-01-20T08:28:43.659522+00:00 [queued]>
+[2025-01-20T08:45:45.844+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: user_data_to_duckdb.run_dbt_transform manual__2025-01-20T08:28:43.659522+00:00 [queued]>
+[2025-01-20T08:45:45.846+0000] {taskinstance.py:2866} INFO - Starting attempt 4 of 5
+[2025-01-20T08:45:45.869+0000] {taskinstance.py:2889} INFO - Executing <Task(BashOperator): run_dbt_transform> on 2025-01-20 08:28:43.659522+00:00
+[2025-01-20T08:45:45.881+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=838) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-01-20T08:45:45.883+0000] {standard_task_runner.py:72} INFO - Started process 843 to run task
+[2025-01-20T08:45:45.885+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'user_data_to_duckdb', 'run_dbt_transform', 'manual__2025-01-20T08:28:43.659522+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/api_duckdb_dag.py', '--cfg-path', '/tmp/tmpi9j7qv3e']
+[2025-01-20T08:45:45.888+0000] {standard_task_runner.py:105} INFO - Job 29: Subtask run_dbt_transform
+[2025-01-20T08:45:45.983+0000] {task_command.py:467} INFO - Running <TaskInstance: user_data_to_duckdb.run_dbt_transform manual__2025-01-20T08:28:43.659522+00:00 [running]> on host af5c9462b200
+[2025-01-20T08:45:46.124+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='user_data_to_duckdb' AIRFLOW_CTX_TASK_ID='run_dbt_transform' AIRFLOW_CTX_EXECUTION_DATE='2025-01-20T08:28:43.659522+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-20T08:28:43.659522+00:00'
+[2025-01-20T08:45:46.130+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-01-20T08:45:46.130+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-01-20T08:45:46.131+0000] {logging_mixin.py:190} INFO - Current task name:run_dbt_transform state:running start_date:2025-01-20 08:45:45.833525+00:00
+[2025-01-20T08:45:46.132+0000] {logging_mixin.py:190} INFO - Dag name:user_data_to_duckdb and current dag run status:running
+[2025-01-20T08:45:46.132+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-20T08:45:46.134+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-01-20T08:45:46.137+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/***/dags/dbt_models &&         dbt run --profiles-dir /opt/***/dbt/profiles.yml --target dev\n        ']
+[2025-01-20T08:45:46.159+0000] {subprocess.py:99} INFO - Output:
+[2025-01-20T08:45:53.124+0000] {subprocess.py:106} INFO - [0m08:45:53  Running with dbt=1.9.1
+[2025-01-20T08:45:53.945+0000] {subprocess.py:106} INFO - [0m08:45:53  Registered adapter: duckdb=1.9.1
+[2025-01-20T08:45:55.582+0000] {subprocess.py:106} INFO - [0m08:45:55  Found 1 model, 1 source, 424 macros
+[2025-01-20T08:45:55.587+0000] {subprocess.py:106} INFO - [0m08:45:55
+[2025-01-20T08:45:55.588+0000] {subprocess.py:106} INFO - [0m08:45:55  Concurrency: 1 threads (target='dev')
+[2025-01-20T08:45:55.589+0000] {subprocess.py:106} INFO - [0m08:45:55
+[2025-01-20T08:45:55.985+0000] {subprocess.py:106} INFO - [0m08:45:55  1 of 1 START sql table model main.transform_users .............................. [RUN]
+[2025-01-20T08:45:56.498+0000] {subprocess.py:106} INFO - [0m08:45:56  1 of 1 OK created sql table model main.transform_users ......................... [[32mOK[0m in 0.50s]
+[2025-01-20T08:45:56.580+0000] {subprocess.py:106} INFO - [0m08:45:56
+[2025-01-20T08:45:56.583+0000] {subprocess.py:106} INFO - [0m08:45:56  Finished running 1 table model in 0 hours 0 minutes and 0.99 seconds (0.99s).
+[2025-01-20T08:45:56.953+0000] {subprocess.py:106} INFO - [0m08:45:56
+[2025-01-20T08:45:56.957+0000] {subprocess.py:106} INFO - [0m08:45:56  [32mCompleted successfully[0m
+[2025-01-20T08:45:56.961+0000] {subprocess.py:106} INFO - [0m08:45:56
+[2025-01-20T08:45:56.964+0000] {subprocess.py:106} INFO - [0m08:45:56  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2025-01-20T08:45:59.498+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-01-20T08:45:59.635+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-20T08:45:59.636+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=user_data_to_duckdb, task_id=run_dbt_transform, run_id=manual__2025-01-20T08:28:43.659522+00:00, execution_date=20250120T082843, start_date=20250120T084545, end_date=20250120T084559
+[2025-01-20T08:45:59.693+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-01-20T08:45:59.696+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-01-20T08:45:59.698+0000] {logging_mixin.py:190} INFO - Dag name:user_data_to_duckdb queued_at:2025-01-20 08:28:43.776172+00:00
+[2025-01-20T08:45:59.700+0000] {logging_mixin.py:190} INFO - Task hostname:af5c9462b200 operator:BashOperator
+[2025-01-20T08:45:59.808+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-20T08:45:59.900+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-20T08:45:59.920+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,28 @@
+[2025-01-17T12:56:20.926+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-17T12:56:20.990+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: user_data_to_duckdb.fetch_user_data_from_api manual__2025-01-17T12:55:02.986240+00:00 [queued]>
+[2025-01-17T12:56:21.040+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: user_data_to_duckdb.fetch_user_data_from_api manual__2025-01-17T12:55:02.986240+00:00 [queued]>
+[2025-01-17T12:56:21.041+0000] {taskinstance.py:2866} INFO - Starting attempt 2 of 3
+[2025-01-17T12:56:21.093+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): fetch_user_data_from_api> on 2025-01-17 12:55:02.986240+00:00
+[2025-01-17T12:56:21.116+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1145) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-01-17T12:56:21.120+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'user_data_to_duckdb', 'fetch_user_data_from_api', 'manual__2025-01-17T12:55:02.986240+00:00', '--job-id', '131', '--raw', '--subdir', 'DAGS_FOLDER/api_duckdb_dag.py', '--cfg-path', '/tmp/tmpypnzkwav']
+[2025-01-17T12:56:21.123+0000] {standard_task_runner.py:105} INFO - Job 131: Subtask fetch_user_data_from_api
+[2025-01-17T12:56:21.122+0000] {standard_task_runner.py:72} INFO - Started process 1157 to run task
+[2025-01-17T12:56:21.280+0000] {task_command.py:467} INFO - Running <TaskInstance: user_data_to_duckdb.fetch_user_data_from_api manual__2025-01-17T12:55:02.986240+00:00 [running]> on host 78d3b8284409
+[2025-01-17T12:56:21.620+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='user_data_to_duckdb' AIRFLOW_CTX_TASK_ID='fetch_user_data_from_api' AIRFLOW_CTX_EXECUTION_DATE='2025-01-17T12:55:02.986240+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-17T12:55:02.986240+00:00'
+[2025-01-17T12:56:21.627+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-01-17T12:56:21.629+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-01-17T12:56:21.630+0000] {logging_mixin.py:190} INFO - Current task name:fetch_user_data_from_api state:running start_date:2025-01-17 12:56:20.992618+00:00
+[2025-01-17T12:56:21.631+0000] {logging_mixin.py:190} INFO - Dag name:user_data_to_duckdb and current dag run status:running
+[2025-01-17T12:56:21.632+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-17T12:56:22.056+0000] {python.py:240} INFO - Done. Returned value was: /opt/***/apidata/users_data.json
+[2025-01-17T12:56:22.149+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-17T12:56:22.150+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=user_data_to_duckdb, task_id=fetch_user_data_from_api, run_id=manual__2025-01-17T12:55:02.986240+00:00, execution_date=20250117T125502, start_date=20250117T125620, end_date=20250117T125622
+[2025-01-17T12:56:22.177+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-01-17T12:56:22.178+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-01-17T12:56:22.179+0000] {logging_mixin.py:190} INFO - Dag name:user_data_to_duckdb queued_at:2025-01-17 12:55:03.104042+00:00
+[2025-01-17T12:56:22.180+0000] {logging_mixin.py:190} INFO - Task hostname:78d3b8284409 operator:PythonOperator
+[2025-01-17T12:56:22.249+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-17T12:56:22.326+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-01-17T12:56:22.331+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

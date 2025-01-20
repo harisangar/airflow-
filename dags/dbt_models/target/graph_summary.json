@@ -1,0 +1,1 @@
+{"_invocation_id": "18f2c7c9-1a78-4551-a70f-9cf7352e15fe", "linked": {"0": {"name": "source.my_dbt_project.apidata.users", "type": "source", "succ": [1, 2]}, "1": {"name": "model.my_dbt_project.transform_users", "type": "model"}, "2": {"name": "model.my_dbt_project.transform_users2", "type": "model"}}}

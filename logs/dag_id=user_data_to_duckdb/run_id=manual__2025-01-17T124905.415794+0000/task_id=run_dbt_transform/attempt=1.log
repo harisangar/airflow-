@@ -1,0 +1,103 @@
+[2025-01-17T12:56:31.244+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-17T12:56:31.277+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: user_data_to_duckdb.run_dbt_transform manual__2025-01-17T12:49:05.415794+00:00 [queued]>
+[2025-01-17T12:56:31.293+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: user_data_to_duckdb.run_dbt_transform manual__2025-01-17T12:49:05.415794+00:00 [queued]>
+[2025-01-17T12:56:31.294+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-01-17T12:56:31.507+0000] {taskinstance.py:2889} INFO - Executing <Task(BashOperator): run_dbt_transform> on 2025-01-17 12:49:05.415794+00:00
+[2025-01-17T12:56:31.520+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1155) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-01-17T12:56:31.523+0000] {standard_task_runner.py:72} INFO - Started process 1177 to run task
+[2025-01-17T12:56:31.525+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'user_data_to_duckdb', 'run_dbt_transform', 'manual__2025-01-17T12:49:05.415794+00:00', '--job-id', '133', '--raw', '--subdir', 'DAGS_FOLDER/api_duckdb_dag.py', '--cfg-path', '/tmp/tmp_w1g1q15']
+[2025-01-17T12:56:31.530+0000] {standard_task_runner.py:105} INFO - Job 133: Subtask run_dbt_transform
+[2025-01-17T12:56:31.617+0000] {task_command.py:467} INFO - Running <TaskInstance: user_data_to_duckdb.run_dbt_transform manual__2025-01-17T12:49:05.415794+00:00 [running]> on host 78d3b8284409
+[2025-01-17T12:56:31.776+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='user_data_to_duckdb' AIRFLOW_CTX_TASK_ID='run_dbt_transform' AIRFLOW_CTX_EXECUTION_DATE='2025-01-17T12:49:05.415794+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-17T12:49:05.415794+00:00'
+[2025-01-17T12:56:31.781+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-01-17T12:56:31.782+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-01-17T12:56:31.783+0000] {logging_mixin.py:190} INFO - Current task name:run_dbt_transform state:running start_date:2025-01-17 12:56:31.278777+00:00
+[2025-01-17T12:56:31.784+0000] {logging_mixin.py:190} INFO - Dag name:user_data_to_duckdb and current dag run status:running
+[2025-01-17T12:56:31.785+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-17T12:56:31.788+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-01-17T12:56:31.790+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/***/dags/dbt_models &&         dbt run --profiles-dir /opt/***/.dbt --target dev\n        ']
+[2025-01-17T12:56:31.815+0000] {subprocess.py:99} INFO - Output:
+[2025-01-17T12:57:01.445+0000] {job.py:229} INFO - Heartbeat recovered after 24.74 seconds
+[2025-01-17T12:57:07.400+0000] {subprocess.py:106} INFO - [0m12:57:07  Running with dbt=1.9.1
+[2025-01-17T12:57:10.162+0000] {subprocess.py:106} INFO - [0m12:57:10  Encountered an error:
+[2025-01-17T12:57:10.168+0000] {subprocess.py:106} INFO - Runtime Error
+[2025-01-17T12:57:10.171+0000] {subprocess.py:106} INFO -   Credentials in profile "my_dbt_profile", target "dev" invalid: Runtime Error
+[2025-01-17T12:57:10.174+0000] {subprocess.py:106} INFO -     Inconsistency detected between 'path' and 'database' fields in profile; the 'database' property must be set to 'database' to match the 'path'
+[2025-01-17T12:57:11.338+0000] {subprocess.py:110} INFO - Command exited with return code 2
+[2025-01-17T12:57:11.417+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2025-01-17T12:57:11.479+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-01-17T12:57:11.481+0000] {logging_mixin.py:190} INFO - Task start:2025-01-17 12:56:31.278777+00:00 end:2025-01-17 12:57:11.477179+00:00 duration:40.198402
+[2025-01-17T12:57:11.495+0000] {logging_mixin.py:190} INFO - Task:<Task(BashOperator): run_dbt_transform> dag:<DAG: user_data_to_duckdb> dagrun:<DagRun user_data_to_duckdb @ 2025-01-17 12:49:05.415794+00:00: manual__2025-01-17T12:49:05.415794+00:00, state:running, queued_at: 2025-01-17 12:49:05.474755+00:00. externally triggered: True>
+[2025-01-17T12:57:11.496+0000] {logging_mixin.py:190} INFO - Failure caused by Bash command failed. The command returned a non-zero exit code 2.
+[2025-01-17T12:57:11.501+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=user_data_to_duckdb, task_id=run_dbt_transform, run_id=manual__2025-01-17T12:49:05.415794+00:00, execution_date=20250117T124905, start_date=20250117T125631, end_date=20250117T125711
+[2025-01-17T12:57:11.686+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-17T12:57:11.690+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 133 for task run_dbt_transform (Bash command failed. The command returned a non-zero exit code 2.; 1177)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2025-01-17T12:57:11.794+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-01-17T12:57:11.876+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-17T12:57:11.879+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

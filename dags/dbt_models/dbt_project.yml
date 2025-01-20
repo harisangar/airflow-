@@ -1,0 +1,21 @@
+name: "my_dbt_project" # The name of your project
+version: "1.0" # The version of your project
+config-version: 2 # The configuration version for DBT
+
+# The profile name you'll use for DBT (usually defined in profiles.yml)
+profile: "my_dbt_profile"
+
+# The directory where compiled SQL, logs, and other files will be stored
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_modules"
+
+# The list of models to be run by DBT
+models:
+  my_dbt_project: # This should be the name of your DBT project
+    +materialized: table # Default materialization for all models in this folder
+    transform_users:
+      +materialized: table # Model-specific materialization
+    transform_users2:
+      +materialized: table # Model-specific materialization

@@ -1,0 +1,8 @@
+version: 2
+sources:
+  - name: apidata # Name of the source (can be anything you want)
+    database: my_duckdb_database # Your DuckDB database name
+    schema: main # The schema where your users table exists in DuckDB (if applicable)
+    tables:
+      - name: users # The table name you want to reference in DBT
+        description: "A table containing user data"

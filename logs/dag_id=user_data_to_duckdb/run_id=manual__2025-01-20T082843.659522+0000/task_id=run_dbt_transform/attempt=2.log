@@ -1,0 +1,88 @@
+[2025-01-20T08:37:10.410+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-20T08:37:12.460+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: user_data_to_duckdb.run_dbt_transform manual__2025-01-20T08:28:43.659522+00:00 [queued]>
+[2025-01-20T08:37:12.597+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: user_data_to_duckdb.run_dbt_transform manual__2025-01-20T08:28:43.659522+00:00 [queued]>
+[2025-01-20T08:37:12.606+0000] {taskinstance.py:2866} INFO - Starting attempt 2 of 2
+[2025-01-20T08:37:12.843+0000] {taskinstance.py:2889} INFO - Executing <Task(BashOperator): run_dbt_transform> on 2025-01-20 08:28:43.659522+00:00
+[2025-01-20T08:37:12.960+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'user_data_to_duckdb', 'run_dbt_transform', 'manual__2025-01-20T08:28:43.659522+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/api_duckdb_dag.py', '--cfg-path', '/tmp/tmpu5wzaiuu']
+[2025-01-20T08:37:12.981+0000] {standard_task_runner.py:105} INFO - Job 22: Subtask run_dbt_transform
+[2025-01-20T08:37:12.950+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=647) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-01-20T08:37:12.995+0000] {standard_task_runner.py:72} INFO - Started process 659 to run task
+[2025-01-20T08:37:24.314+0000] {cli_action_loggers.py:177} WARNING - Failed to log action (psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2025-01-20T08:37:25.493+0000] {job.py:229} INFO - Heartbeat recovered after 15.77 seconds
+[2025-01-20T08:37:25.957+0000] {task_command.py:467} INFO - Running <TaskInstance: user_data_to_duckdb.run_dbt_transform manual__2025-01-20T08:28:43.659522+00:00 [running]> on host af5c9462b200
+[2025-01-20T08:37:27.267+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='user_data_to_duckdb' AIRFLOW_CTX_TASK_ID='run_dbt_transform' AIRFLOW_CTX_EXECUTION_DATE='2025-01-20T08:28:43.659522+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-20T08:28:43.659522+00:00'
+[2025-01-20T08:37:27.271+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-01-20T08:37:27.272+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-01-20T08:37:27.273+0000] {logging_mixin.py:190} INFO - Current task name:run_dbt_transform state:running start_date:2025-01-20 08:37:12.516852+00:00
+[2025-01-20T08:37:27.281+0000] {logging_mixin.py:190} INFO - Dag name:user_data_to_duckdb and current dag run status:running
+[2025-01-20T08:37:27.284+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-20T08:37:27.385+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-01-20T08:37:27.393+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/***/dags/dbt_models &&         dbt run --profiles-dir /opt/***/dbt/profiles.yml --target dev\n        ']
+[2025-01-20T08:37:27.629+0000] {subprocess.py:99} INFO - Output:
+[2025-01-20T08:37:48.537+0000] {subprocess.py:106} INFO - [0m08:37:48  Running with dbt=1.9.1
+[2025-01-20T08:37:53.601+0000] {subprocess.py:106} INFO - [0m08:37:53  Registered adapter: duckdb=1.9.1
+[2025-01-20T08:38:02.798+0000] {subprocess.py:106} INFO - [0m08:38:02  Found 1 model, 1 source, 424 macros
+[2025-01-20T08:38:03.087+0000] {subprocess.py:106} INFO - [0m08:38:03
+[2025-01-20T08:38:03.152+0000] {subprocess.py:106} INFO - [0m08:38:03  Concurrency: 1 threads (target='dev')
+[2025-01-20T08:38:03.172+0000] {subprocess.py:106} INFO - [0m08:38:03
+[2025-01-20T08:38:45.556+0000] {job.py:229} INFO - Heartbeat recovered after 50.10 seconds
+[2025-01-20T08:38:49.419+0000] {subprocess.py:106} INFO - [0m08:38:49  1 of 1 START sql table model main.transform_users .............................. [RUN]
+[2025-01-20T08:38:50.399+0000] {subprocess.py:106} INFO - [0m08:38:50  1 of 1 ERROR creating sql table model main.transform_users ..................... [[31mERROR[0m in 0.96s]
+[2025-01-20T08:38:50.620+0000] {subprocess.py:106} INFO - [0m08:38:50
+[2025-01-20T08:38:50.621+0000] {subprocess.py:106} INFO - [0m08:38:50  Finished running 1 table model in 0 hours 0 minutes and 47.40 seconds (47.40s).
+[2025-01-20T08:38:50.886+0000] {subprocess.py:106} INFO - [0m08:38:50
+[2025-01-20T08:38:50.889+0000] {subprocess.py:106} INFO - [0m08:38:50  [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[2025-01-20T08:38:50.891+0000] {subprocess.py:106} INFO - [0m08:38:50
+[2025-01-20T08:38:50.893+0000] {subprocess.py:106} INFO - [0m08:38:50    Runtime Error in model transform_users (models/transform_users.sql)
+[2025-01-20T08:38:50.894+0000] {subprocess.py:106} INFO -   Catalog Error: Table with name users does not exist!
+[2025-01-20T08:38:50.895+0000] {subprocess.py:106} INFO -   Did you mean "my_duckdb_database.users"?
+[2025-01-20T08:38:50.897+0000] {subprocess.py:106} INFO -   LINE 15:     SELECT * FROM "my_duckdb_database"."apidata"."users"
+[2025-01-20T08:38:50.899+0000] {subprocess.py:106} INFO -                              ^
+[2025-01-20T08:38:50.901+0000] {subprocess.py:106} INFO - [0m08:38:50
+[2025-01-20T08:38:50.902+0000] {subprocess.py:106} INFO - [0m08:38:50  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[2025-01-20T08:38:57.162+0000] {local_task_job_runner.py:346} WARNING - State of this instance has been externally set to restarting. Terminating instance.
+[2025-01-20T08:38:57.192+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-01-20T08:38:57.244+0000] {process_utils.py:132} INFO - Sending 15 to group 659. PIDs of all processes in the group: [661, 662, 673, 659]
+[2025-01-20T08:38:57.257+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 659
+[2025-01-20T08:38:57.272+0000] {taskinstance.py:3093} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-01-20T08:38:57.287+0000] {subprocess.py:117} INFO - Sending SIGTERM signal to process group
+[2025-01-20T08:38:57.543+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=662, status='terminated', started='08:37:27') (662) terminated with exit code None
+[2025-01-20T08:38:57.723+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=673, status='terminated', started='08:37:53') (673) terminated with exit code None
+[2025-01-20T08:38:57.598+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 257, in execute
+    result = self._run_inline_command(bash_path=bash_path, env=env)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 284, in _run_inline_command
+    return self.subprocess_hook.run_command(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/hooks/subprocess.py", line 104, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3095, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2025-01-20T08:38:57.793+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-01-20T08:38:57.806+0000] {logging_mixin.py:190} INFO - Task start:2025-01-20 08:37:12.516852+00:00 end:2025-01-20 08:38:57.791516+00:00 duration:105.274664
+[2025-01-20T08:38:57.808+0000] {logging_mixin.py:190} INFO - Task:<Task(BashOperator): run_dbt_transform> dag:<DAG: user_data_to_duckdb> dagrun:<DagRun user_data_to_duckdb @ 2025-01-20 08:28:43.659522+00:00: manual__2025-01-20T08:28:43.659522+00:00, state:running, queued_at: 2025-01-20 08:28:43.776172+00:00. externally triggered: True>
+[2025-01-20T08:38:57.809+0000] {logging_mixin.py:190} INFO - Failure caused by Task received SIGTERM signal
+[2025-01-20T08:38:57.810+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=user_data_to_duckdb, task_id=run_dbt_transform, run_id=manual__2025-01-20T08:28:43.659522+00:00, execution_date=20250120T082843, start_date=20250120T083712, end_date=20250120T083857
+[2025-01-20T08:38:58.087+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-20T08:38:58.320+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=661, status='terminated', started='08:37:27') (661) terminated with exit code None
+[2025-01-20T08:38:58.321+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=659, status='terminated', exitcode=2, started='08:37:12') (659) terminated with exit code 2

@@ -1,0 +1,10 @@
+my_dbt_profile:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      threads: 1
+      host: localhost
+      port: 5432
+      path: /opt/airflow/apidata/my_duckdb_database.duckdb # Path to your DuckDB file
+      database: my_duckdb_database
