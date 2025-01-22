@@ -1,0 +1,78 @@
+DataOps Project Presentation
+Slide 1: Introduction
+Project Title: ERP Data Integration and Transformation Using DataOps Practices
+Objective: Seamless ingestion, transformation, and visualization of ERP data (Payment Receipt doctype) using modern DataOps tools and methodologies.
+Key Tools & Technologies:
+Docker
+Apache Airflow
+DuckDB
+dbt Core
+Great Expectations
+Streamlit
+Slide 2: Summary
+Scope:
+Ingest ERP data via APIs.
+Store raw data in DuckDB.
+Transform data with dbt Core, applying star schema modeling and validation.
+Visualize the transformed data using Streamlit.
+Goals:
+Improve data quality and pipeline efficiency.
+Enable actionable insights through reliable data visualization.
+Slide 3: Approach + DataOps
+Approach:
+Ingestion: API-based data fetching.
+Storage: DuckDB for lightweight, high-performance storage.
+Transformation: dbt Core for modular, version-controlled transformations.
+Validation: Great Expectations for automated quality checks.
+Visualization: Streamlit for interactive dashboards.
+DataOps Practices:
+Agile, iterative development.
+Automation and CI/CD pipelines for reproducibility.
+Continuous monitoring and validation for trustworthiness.
+Slide 4: Design + Dataflow
+Design Highlights:
+Modular pipeline with clearly defined stages.
+Scalable and containerized infrastructure using Docker.
+Focus on reusability and maintainability with dbt and Airflow.
+Dataflow Diagram:
+ERP APIs →
+Airflow (Ingestion) →
+DuckDB (Raw Layer) →
+dbt Core (Transformation) →
+DuckDB (Star Schema) →
+Streamlit (Visualization).
+Slide 5: Built of Material
+Tools:
+Docker: Ensures portability and consistency.
+Apache Airflow: Manages workflow orchestration.
+DuckDB: Provides a fast, local analytical database.
+dbt Core: Modular SQL transformations with lineage tracking.
+Great Expectations: Validates data quality.
+Streamlit: Offers an easy-to-use framework for dashboards.
+Resources:
+ERP API documentation.
+Cloud/Local infrastructure for deployment.
+Team collaboration and version control tools (e.g., Git).
+Slide 6: Planning
+Timeline:
+Week 1: Requirements gathering and design.
+Week 2-3: Data ingestion setup with Airflow and Docker.
+Week 4-5: Transformation logic in dbt Core.
+Week 6: Data validation and testing with Great Expectations.
+Week 7: Dashboard development in Streamlit.
+Week 8: Final testing, documentation, and deployment.
+Milestones:
+Working ingestion pipeline.
+Validated star schema in DuckDB.
+Fully functional Streamlit dashboard.
+Slide 7: Next Steps
+Integrate CI/CD pipelines for dbt models and data validation checks.
+Explore scaling options for larger data volumes.
+Enhance dashboard interactivity and user experience.
+Conduct user training and gather feedback.
+Slide 8: Open Questions
+Are there specific ERP fields that need additional attention during validation?
+Should we plan for real-time data ingestion or stick to batch updates?
+What additional visualizations or KPIs would be most beneficial in the dashboard?
+Are there other compliance or security considerations for handling the data?
+ 
